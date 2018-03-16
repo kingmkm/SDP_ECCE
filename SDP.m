@@ -1,7 +1,7 @@
 %Create a detector object
 % %pointTracker = vision.PointTracker('MaxBidirectionalError', 2);
- cam = webcam('Microsoft Camera Front');
- videoFrame = snapshot(cam);
+ %cam = webcam('Microsoft Camera Front');
+ %videoFrame = snapshot(cam);
  frameSize = size(videoFrame);
 % % Create the video player object.
  videoPlayer = vision.VideoPlayer('Position', [100 100 [frameSize(2), frameSize(1)]+30]);
@@ -13,8 +13,8 @@ faceDetector=vision.CascadeObjectDetector('FrontalFaceCART');
 count=0;
 while runloop
     
-img=snapshot(cam); %Read input image
-%step(videoPlayer, img);
+
+step(videoPlayer, img);
 %img = step(a);
 %imshow(img);
 count=count+1;
@@ -24,13 +24,13 @@ if count>-1
     face=imcrop(img,BB(1,:));
     fac=imresize(face,[212,192]);
     ftrs = detectSURFFeatures(fac);
-     figure(2);
+    figure(2);
  imshow(fac);hold on; plot(ftrs);
  count=0;
 end
 %Plot facial features.
 %step(videoPlayer, img);
-%runLoop = isOpen(videoPlayer);
+runLoop = isOpen(videoPlayer);
 end
 % Clean up.
 clear cam;

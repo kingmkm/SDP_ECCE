@@ -18,7 +18,7 @@ title('Detected face');
 htextinsface = vision.TextInserter('Text', 'face   : %2d', 'Location',  [5 2],'Font', 'Courier New','FontSize', 14);
 
 
-%imshow(img);
+imshow(img);
 hold on
 for i=1:size(BB,1)
     rectangle('position',BB(i,:),'Linewidth',2,'Linestyle','-','Edgecolor','y');
@@ -39,12 +39,12 @@ for i=1:N
         newName = [baseDir num2str(counter) '.jpg'];
     end
     fac=imresize(face,[112,92]);
-    imwrite(fac,newName);
+    %imwrite(fac,newName);
 
 figure(2);
 imshow(face); 
 title('crop pic');
    
-    pause(.5);
+    %pause(.5);
 
 end
