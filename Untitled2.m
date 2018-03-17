@@ -10,7 +10,7 @@ videoPlayer = vision.VideoPlayer('Position', [100 100 [frameSize(2), frameSize(1
 
 while true
 videoFrame      = step(videoFileReader);
-%bbox            = step(faceDetector, videoFrame);
-%videoFrame = insertShape(videoFrame, 'Rectangle', bbox);
+bbox            = step(faceDetector, videoFrame);
+videoFrame = insertShape(videoFrame, 'Rectangle', bbox);
  step(videoPlayer, videoFrame);
 end
